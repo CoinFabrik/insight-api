@@ -327,7 +327,7 @@ Sample output:
 
 Note: if pagination params are not specified, the result is an array of transactions.
 
-### Transaction Ids by Address
+### Transaction Ids by Addresses
 GET method:
 ```
   /insight-api/txlist/[:addrs][?from=&to=]
@@ -359,6 +359,63 @@ Sample output:
     "75acbdd1cd37d4b797fbd5d6bf826d47dc6cc59bdb13c8c6c0275563e745acba",
     ...
   ]
+}
+```
+
+### Transaction Details by Ids
+GET method:
+```
+  /insight-api/txdetails/[:txids][?from=&to=]
+  /insight-api/txdetails/e04f21e1f5d323a79c5eb88517be6fa95dfc92a3b56a6a8c02f2fada4e8bbc6c,75acbdd1cd37d4b797fbd5d6bf826d47dc6cc59bdb13c8c6c0275563e745acba?from=0&to=20
+```
+
+POST method:
+```
+  /insight-api/txdetails
+```
+
+POST params:
+```
+txids: e04f21e1f5d323a79c5eb88517be6fa95dfc92a3b56a6a8c02f2fada4e8bbc6c,75acbdd1cd37d4b797fbd5d6bf826d47dc6cc59bdb13c8c6c0275563e745acba
+from (optional): 0
+to (optional): 20
+```
+
+Sample output:
+```
+{
+  "e04f21e1f5d323a79c5eb88517be6fa95dfc92a3b56a6a8c02f2fada4e8bbc6c": { 
+    txid: 'e04f21e1f5d323a79c5eb88517be6fa95dfc92a3b56a6a8c02f2fada4e8bbc6c',
+    version: 1,
+    locktime: 0,
+    vin: [Object],
+    vout: [Object],
+    blockhash: '00000000011a135e5277f5493c52c66829792392632b8b65429cf07ad3c47a6c',
+    confirmations: 109367,
+    time: 1393659685,
+    blocktime: 1393659685,
+    valueOut: 0.3453,
+    size: 225,
+    firstSeenTs: undefined,
+    valueIn: 0.3454,
+    fees: 0.0001 
+  },
+  "75acbdd1cd37d4b797fbd5d6bf826d47dc6cc59bdb13c8c6c0275563e745acba": { 
+    txid: '75acbdd1cd37d4b797fbd5d6bf826d47dc6cc59bdb13c8c6c0275563e745acba',
+    version: 1,
+    locktime: 0,
+    vin: [Object],
+    vout: [Object],
+    blockhash: '00000000011a135e5277f5493c52c66829792392632b8b65429cf07ad3c47a6c',
+    confirmations: 109367,
+    time: 1393659685,
+    blocktime: 1393659685,
+    valueOut: 2.524,
+    size: 247,
+    firstSeenTs: undefined,
+    valueIn: 2.524,
+    fees: 0.00015 
+  }
 }
 ```
 
