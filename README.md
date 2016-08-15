@@ -327,6 +327,41 @@ Sample output:
 
 Note: if pagination params are not specified, the result is an array of transactions.
 
+### Transaction Ids by Address
+GET method:
+```
+  /insight-api/txlist/[:addrs][?from=&to=]
+  /insight-api/txlist/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f?from=0&to=20
+```
+
+POST method:
+```
+  /insight-api/txlist
+```
+
+POST params:
+```
+addrs: 2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f
+from (optional): 0
+to (optional): 20
+```
+
+Sample output:
+```
+{
+  "2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5": [
+    "e04f21e1f5d323a79c5eb88517be6fa95dfc92a3b56a6a8c02f2fada4e8bbc6c",
+    "451f4ebd9fb1e7fbf6ff5856e0b13ef8b9b3b826b6184321fb7d8ad5c1e1edc6", 
+    ...
+  ],
+  "2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f": [
+    "e04f21e1f5d323a79c5eb88517be6fa95dfc92a3b56a6a8c02f2fada4e8bbc6c",
+    "75acbdd1cd37d4b797fbd5d6bf826d47dc6cc59bdb13c8c6c0275563e745acba",
+    ...
+  ]
+}
+```
+
 ### Transaction Broadcasting
 POST method:
 ```
